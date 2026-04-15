@@ -33,6 +33,11 @@ int main(void)
 
 	// Loggeamos el valor de config
 	log_info(logger, "Valor de CLAVE: %s", valor);
+	log_info(logger, "Intentando conectar a %s:%s", ip, puerto);
+	if (conexion == -1) {
+    log_error(logger, "Fallo la conexion");
+    return 1;
+}
 	// Usando el config creado previamente, leemos los valores del config y los 
 	// dejamos en las variables 'ip', 'puerto' y 'valor'
 
