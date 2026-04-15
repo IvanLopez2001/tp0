@@ -25,7 +25,16 @@ int iniciar_servidor(void)
 	// Asociamos el socket a un puerto
 	bind(socket_servidor, servinfo->ai_addr, servinfo->ai_addrlen);
 	// Escuchamos las conexiones entrantes
+	if (bind(socket_servidor, servinfo->ai_addr, servinfo->ai_addrlen) == -1) {
+    perror("bind");
+    exit(EXIT_FAILURE);
+	}
 	listen(socket_servidor, SOMAXCONN);
+	if (listen(socket_servidor, SOMAXCONN) == -1) {
+		perror("listen");
+		exit(EXIT_FAILURE);
+	}
+	
 	freeaddrinfo(servinfo);
 	log_trace(logger, "Listo para escuchar a mi cliente");
 
