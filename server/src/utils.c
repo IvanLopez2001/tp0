@@ -34,7 +34,7 @@ int iniciar_servidor(void)
 	}
 	
 	freeaddrinfo(servinfo);
-	log_trace(logger, "Listo para escuchar a mi cliente");
+	log_trace(logger, "Listo para escuchar a mi cliente" PUERTO );
 
 	return socket_servidor;
 }
