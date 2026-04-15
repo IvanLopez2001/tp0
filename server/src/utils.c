@@ -35,7 +35,7 @@ int iniciar_servidor(void)
 		exit(EXIT_FAILURE);
 	}
 	
-	freeaddrinfo(servinfo);s
+	freeaddrinfo(servinfo);
 	log_trace(logger, "Listo para escuchar a mi cliente");
 
 	return socket_servidor;
